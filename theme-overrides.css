@@ -1,0 +1,194 @@
+/* Theme polish — contrast fixes + light-mode depth */
+
+/* ── Active / selected cards (light: no dark-on-dark text) ── */
+.h-tile.active,
+.fw-card.active,
+.platform-card.active {
+  background: var(--selection-bg) !important;
+  border-color: var(--border-accent) !important;
+}
+
+[data-theme="light"] .h-tile.active .h-val,
+[data-theme="light"] .h-tile.active .h-meta,
+[data-theme="light"] .h-tile.active .h-lbl,
+[data-theme="light"] .fw-card.active h3,
+[data-theme="light"] .fw-card.active p,
+[data-theme="light"] .fw-card.active .fw-foot,
+[data-theme="light"] .fw-card.active .fw-chip,
+[data-theme="light"] .platform-card.active .p-val,
+[data-theme="light"] .platform-card.active .p-meta,
+[data-theme="light"] .platform-card.active .p-name {
+  color: var(--text-1);
+}
+
+[data-theme="light"] .fw-card.active .fw-tag,
+[data-theme="light"] .fw-card.active .fw-foot b,
+[data-theme="light"] .platform-card.active .p-name .p-tag {
+  color: var(--text-2);
+}
+
+[data-theme="light"] .h-tile.active .h-chip {
+  background: rgba(79, 91, 213, 0.12);
+  color: var(--accent);
+}
+
+[data-theme="light"] .h-tile.active {
+  box-shadow: var(--shadow-card-hover), 0 0 0 1px var(--border-accent);
+}
+
+/* ── Status & labels ── */
+.pill-ok, .pill-warn, .pill-danger, .pill-info { font-weight: 600; }
+.h-tile.ok .h-chip, .h-tile.warn .h-chip { font-weight: 700; }
+.metric .delta { color: var(--text-2); font-weight: 500; }
+.metric .delta.up { color: var(--ok); font-weight: 600; }
+.metric .delta.down { color: var(--danger); font-weight: 600; }
+.deploy-card .dp-risk { font-weight: 700; }
+.res-row.ok .r-stat,
+.res-row.warn .r-stat,
+.res-row.danger .r-stat { font-weight: 700; }
+
+.nav-item .badge { color: var(--text-2); font-weight: 500; }
+.nav-section h4 { color: var(--text-3); font-weight: 700; }
+.sec-head .sub, .metric .lbl, .topbar .sub { color: var(--text-2); }
+.tabs button { color: var(--text-2); font-weight: 500; }
+
+/* ── Hero panels ── */
+.growth-hero { background: var(--growth-hero-bg); }
+.seasonality { background: var(--seasonality-bg); }
+.growth-hero .gh-mini,
+.seasonality .se-mini { background: var(--surface-inset); }
+.growth-hero .gh-mini .l,
+.seasonality .se-mini .l { color: var(--text-2); font-weight: 600; }
+.growth-hero .gh-mini .v { color: var(--text-1); }
+.seasonality .se-mini .v { color: var(--warn); font-weight: 600; }
+[data-theme="light"] .growth-hero .gh-num { color: var(--ok); font-weight: 600; }
+
+/* ── Banking ── */
+.bk-card {
+  color: var(--bk-card-fg);
+  border-color: var(--bk-card-border);
+  box-shadow: 0 8px 24px rgba(15, 16, 35, 0.18);
+}
+.bk-card .bk-num { color: var(--bk-card-fg-secondary); }
+.bk-card .bk-holder,
+.bk-card .bk-type { color: var(--bk-card-fg-muted); font-weight: 600; }
+.bk-card .bk-holder-name,
+.bk-card .bk-brand { color: var(--bk-card-fg); }
+.bk-card.virtual .bk-brand { color: #9AA5FF; }
+.bk-card-foot {
+  border-top: 1px solid var(--bk-card-border);
+  padding-top: 14px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--bk-card-fg-muted);
+}
+.bk-card-foot b { color: var(--bk-card-fg); font-weight: 600; }
+.bk-account .bk-l,
+.bk-account .bk-meta { color: var(--text-2); }
+
+[data-theme="light"] .bk-account.primary {
+  background: var(--bk-primary-bg);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.bk-control-head {
+  font-size: 11px;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.bk-control-list li { font-size: 12.5px; color: var(--text-1); }
+
+/* ── Simulate ── */
+.sim-amount-val { color: var(--accent); font-weight: 600; }
+.sim-flow-card-val { font-weight: 400; }
+[data-theme="light"] .sim-v4 { box-shadow: var(--shadow-card); }
+[data-theme="light"] .sim-v5 { box-shadow: var(--shadow-card); }
+[data-theme="light"] .sim-flow-card { background: var(--bg-card); }
+[data-theme="light"] .sim-sankey { background: var(--bg-card); }
+[data-theme="light"] .bk-real-cash-hero { box-shadow: var(--shadow-card); }
+
+/* ── Misc readability ── */
+.order-row .or-meta { color: var(--text-2); }
+.deploy-card .dp-bench { color: var(--text-2); }
+.deploy-card .dp-stat .l { color: var(--text-2); font-weight: 600; }
+.conn-tile .ct-sub { color: var(--text-2); }
+.onb-foot .skip { color: var(--text-2); }
+.onb-step-name { color: var(--text-2); }
+.onb-body p { color: var(--text-2); }
+.fw-card .fw-foot span:last-child { color: var(--accent) !important; font-weight: 600; }
+.activation-banner .ab-dismiss { color: var(--text-2); font-weight: 500; }
+.env-row input[type="range"]::-webkit-slider-runnable-track { background: var(--progress-track); }
+
+.btn-ghost { border-color: var(--border-strong); color: var(--text-1); }
+
+/* ── Light mode: elevated surfaces & hover feedback ── */
+[data-theme="light"] .metric:hover,
+[data-theme="light"] .h-tile:hover,
+[data-theme="light"] .fw-card:hover,
+[data-theme="light"] .platform-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+[data-theme="light"] .orders-panel,
+[data-theme="light"] .invoice-table,
+[data-theme="light"] .receipts-list,
+[data-theme="light"] .ask-thread,
+[data-theme="light"] .changed,
+[data-theme="light"] .conn-tile,
+[data-theme="light"] .sim-engine,
+[data-theme="light"] .r-detail {
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .mode-toggle {
+  background: var(--bg-card-2);
+  box-shadow: inset 0 1px 2px rgba(15, 16, 35, 0.04);
+}
+
+[data-theme="light"] .links-feature .lf-tag {
+  background: var(--accent-soft);
+  border-color: var(--border-accent);
+}
+
+[data-theme="light"] .rec-hero::before {
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.14), transparent 60%);
+}
+
+[data-theme="light"] .links-feature::before {
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.12), transparent 60%);
+}
+
+[data-theme="light"] .brand-mark::before {
+  background: radial-gradient(circle at 30% 30%, rgba(79, 91, 213, 0.35), transparent 60%);
+}
+
+[data-theme="light"] .mode-marker p { color: var(--text-2); }
+
+[data-theme="light"] .changed .ch-head .sub { color: var(--text-2); }
+
+[data-theme="light"] .iv-row:hover,
+[data-theme="light"] .pt-row:hover,
+[data-theme="light"] .rc-row:hover,
+[data-theme="light"] .sku-row:hover {
+  background: var(--surface-row-hover);
+}
+
+[data-theme="light"] .conn-tile:hover {
+  background: var(--accent-panel);
+  border-color: var(--border-accent);
+}
+
+[data-theme="light"] .ask-msg-ai .content {
+  background: var(--accent-panel);
+}
+
+[data-theme="light"] .activation-banner {
+  background: linear-gradient(90deg, rgba(154, 102, 16, 0.08), rgba(79, 91, 213, 0.06));
+  border-color: rgba(154, 102, 16, 0.28);
+}

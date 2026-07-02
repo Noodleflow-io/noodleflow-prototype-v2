@@ -1,0 +1,25 @@
+trigger: none
+pr: none
+
+pool:
+  name: NoodleFlow_SH
+
+variables:
+  composeFile: docker-compose.yml
+  composeProject: noodleflow-prototype
+
+steps:
+  - checkout: self
+    clean: 'true'
+
+  - script: |
+      set -euo pipefail
+      docker compose -p "$(composeProject)" -f "$(composeFile)" config --quiet
+      docker compose -p "$(composeProject)" -f "$(composeFile)" build
+      docker compose -p "$(composeProject)" -f "$(composeFile)" up -d --remove-orphans
+      docker compose -p "$(composeProject)" -f "$(composeFile)" ps
+      docker system df
+      docker image prune -f
+      docker builder prune -f --filter until=24h
+      docker container prune -f
+    displayName: Deploy NoodleFlow Prototype
