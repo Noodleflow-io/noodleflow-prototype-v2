@@ -14,7 +14,15 @@
 <!-- Brand type: Satoshi (display/headings/numerals) + Inter (body/UI labels) -->
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>(function(){var t=localStorage.getItem('nf-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'light');})();</script>
+<script>(function(){
+  // One-time: light is the product default. Clear any earlier dark preference once.
+  if (!localStorage.getItem('nf-theme-default-v2')) {
+    localStorage.setItem('nf-theme', 'light');
+    localStorage.setItem('nf-theme-default-v2', '1');
+  }
+  var t = localStorage.getItem('nf-theme');
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+})();</script>
 <link rel="stylesheet" href="tokens.css?vv=20260807k&v=20260805">
 <link rel="stylesheet" href="shell.css?v=20260807j">
 <link rel="stylesheet" href="screens.css?v=20260805c">
@@ -39,7 +47,7 @@
     'banking.jsx','reconcile.jsx','extras.jsx','nf-features.jsx',
     'nf-cogs.jsx','nf-automate.jsx','app.jsx'
   ];
-  var ASSET_V = '20260813p';
+  var ASSET_V = '20260813q';
   function loadScript(src){ return new Promise(function(res,rej){ var s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=function(){rej(new Error('Failed to load '+src));}; document.head.appendChild(s); }); }
   // react-dom reads window.React when it evaluates, so those two stay ordered.
   // Babel is independent, so it loads alongside them instead of after them.
