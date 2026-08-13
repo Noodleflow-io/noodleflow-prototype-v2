@@ -1,0 +1,97 @@
+/* brand.css — Noodleflow Brand Guidelines v1.0 application layer.
+   Loads last so it wins over legacy theme styling.
+
+   Palette (from the guide):
+     Primary Black  #000000      Primary White  #E5E5E5
+     Light Blue     #60CDFC *    Light Purple   #6798F2 *
+     Purple         #7770FF *    Sky            #0099FF
+     Blue           #0055FF      Violet         #6600FF
+     Teal           #22DDDD      Lavender       #9869FD
+     (* primary accents)
+
+   Type: Satoshi Variable — headings, display, numerals.
+         Inter          — body copy, UI labels, longer-form content. */
+
+/* ── Typography ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.brand-name,
+.cc-greet, .cc-val,
+.metric .val, .cc-metric .cc-val,
+.serif-num,
+.nf-detail-cell .v, .nf-model-cell .v, .auto-health-cell .v,
+.scn-three .v, .scn-out-metric .v, .scn-kpi-cell .v,
+.nf-eq-row.total .v, .scn-pl-row.total .v,
+.scn-cmp-rows .v.strong, .scn-gap-play .gp-v,
+.scn-company .cw b, .scn-range .rc .rv,
+.nav-footer .nf-val, .alloc-total .t-val,
+.lc-amt, .rc-cell-amt, .rc-money-cell .v {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+/* Satoshi's numerals are the reason it's the display face — lock them in */
+.cc-val, .metric .val, .serif-num,
+.nf-detail-cell .v, .scn-three .v, .scn-out-metric .v,
+.nav-footer .nf-val, .alloc-total .t-val, .lc-amt {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* Display weights: Satoshi carries more optical weight than the old face */
+h1, h2, h3 { font-weight: 700; }
+.cc-greet { font-weight: 700; letter-spacing: -0.025em; }
+.cc-val, .metric .val { font-weight: 700; }
+
+/* Body / UI labels stay Inter for screen legibility */
+body, .lc-sub, .cc-date, .ic-statement, .ic-rec-text,
+input, textarea, select, button { font-family: var(--font-sans); }
+
+.brand-name {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+.brand-sub {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+/* ── Logo lockup ────────────────────────────────────────── */
+/* The mark's own square IS the tile, so the container must paint NO background —
+   a fill behind it would plug the knocked-out monogram and the N would vanish.
+   Artwork colour inverts with the theme, which is what the supplied Logo (Dark)
+   and Logo (Light) variants represent. Never gradient-filled. */
+.brand-mark {
+  background: transparent;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-theme="light"] .brand-mark { color: #0B0B0F; }
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+/* Safe area — clear space equal to the wordmark "o" height, all sides */
+.brand { gap: 12px; }
+
+/* ── Brand surface treatments ───────────────────────────── */
+/* Clean black-and-white foundation: no colour noise behind the content.
+   The canvas is owned by tokens.css — html,body{background:var(--bg-page)} —
+   which resolves to #000000 (dark) / #E5E5E5 (light). Nothing tints it. */
+
+/* Approved gradient pairs, for data-viz and feature surfaces */
+.brand-grad-purple-sky   { background: linear-gradient(135deg, #7770FF 0%, #0099FF 100%); }
+.brand-grad-purple-violet{ background: linear-gradient(135deg, #7770FF 0%, #6600FF 100%); }
+.brand-grad-blue-purple  { background: linear-gradient(135deg, #0055FF 0%, #7770FF 100%); }
+.brand-grad-teal-blue    { background: linear-gradient(135deg, #22DDDD 0%, #60CDFC 100%); }
+
+/* Accent progress / flow bars use the brand gradient (money in motion) */
+.scn-goal-track i { background: linear-gradient(90deg, #7770FF 0%, #0099FF 100%); }
+
+/* ── Links ──────────────────────────────────────────────── */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--info); text-decoration: underline; }
+
+::selection { background: rgba(119,112,255,0.28); color: var(--text-1); }

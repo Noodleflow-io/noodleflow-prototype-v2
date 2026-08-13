@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"/>
+<title>NoodleFlow · Operator Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2084%2084%22%3E%3Crect%20width=%2284%22%20height=%2284%22%20fill=%22%23F2F2F2%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M84%2084H0V0H84V84ZM17.6846%2066.3166C24.2353%2066.3166%2029.5459%2061.0058%2029.5461%2054.4551C29.5461%2048.109%2024.5623%2042.9262%2018.2952%2042.6084L17.6846%2042.5936V66.3166ZM17.6846%2031.1992C19.8511%2031.5866%2021.8076%2032.2693%2023.5509%2033.2534C25.6734%2034.4516%2027.801%2036.0019%2029.9346%2037.9007C31.9088%2039.8488%2034.25%2042.6967%2036.9539%2046.4456C40.4351%2051.1891%2043.466%2054.7065%2046.0469%2056.9969C48.5265%2059.2301%2051.2322%2061.1744%2054.1634%2062.8291C57.8021%2064.8831%2061.5469%2066.0251%2065.3971%2066.2539C65.7026%2066.2809%2066.0101%2066.3008%2066.3166%2066.3166V52.8019C64.15%2052.4146%2062.1936%2051.7307%2060.4502%2050.7466C58.3276%2049.5483%2056.1991%2047.9983%2054.0654%2046.0993C52.0912%2044.1512%2049.751%2041.3031%2047.0472%2037.5544C43.5661%2032.811%2040.5351%2029.2935%2037.9543%2027.0031C35.4747%2024.77%2032.7689%2022.8256%2029.8377%2021.1709C26.1989%2019.1169%2022.4532%2017.976%2018.6029%2017.7472C18.2975%2017.7203%2017.9909%2017.7004%2017.6846%2017.6846V31.1992ZM66.3166%2017.6846C59.7657%2017.6846%2054.4551%2022.9952%2054.4551%2029.5461C54.4551%2036.0969%2059.7658%2041.4076%2066.3166%2041.4076V17.6846Z%22%20fill=%22%230B0B0F%22/%3E%3C/svg%3E"/>
+<meta name="viewport" content="width=1440"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<!-- Brand type: Satoshi (display/headings/numerals) + Inter (body/UI labels) -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){var t=localStorage.getItem('nf-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'light');})();</script>
+<link rel="stylesheet" href="tokens.css?vv=20260807k&v=20260805">
+<link rel="stylesheet" href="shell.css?v=20260807j">
+<link rel="stylesheet" href="screens.css?v=20260805c">
+<link rel="stylesheet" href="theme-overrides.css?v=20260805c">
+<link rel="stylesheet" href="client-modules.css?v=20260807c">
+<link rel="stylesheet" href="feedback.css?v=20260813o">
+<link rel="stylesheet" href="brand.css?v=20260811c">
+</head>
+<body>
+<div id="root"><div class="boot"><span class="boot-mark"><svg viewBox="0 0 84 84" width="52" height="52" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M84 84H0V0H84V84ZM17.6846 66.3166C24.2353 66.3166 29.5459 61.0058 29.5461 54.4551C29.5461 48.109 24.5623 42.9262 18.2952 42.6084L17.6846 42.5936V66.3166ZM17.6846 31.1992C19.8511 31.5866 21.8076 32.2693 23.5509 33.2534C25.6734 34.4516 27.801 36.0019 29.9346 37.9007C31.9088 39.8488 34.25 42.6967 36.9539 46.4456C40.4351 51.1891 43.466 54.7065 46.0469 56.9969C48.5265 59.2301 51.2322 61.1744 54.1634 62.8291C57.8021 64.8831 61.5469 66.0251 65.3971 66.2539C65.7026 66.2809 66.0101 66.3008 66.3166 66.3166V52.8019C64.15 52.4146 62.1936 51.7307 60.4502 50.7466C58.3276 49.5483 56.1991 47.9983 54.0654 46.0993C52.0912 44.1512 49.751 41.3031 47.0472 37.5544C43.5661 32.811 40.5351 29.2935 37.9543 27.0031C35.4747 24.77 32.7689 22.8256 29.8377 21.1709C26.1989 19.1169 22.4532 17.976 18.6029 17.7472C18.2975 17.7203 17.9909 17.7004 17.6846 17.6846V31.1992ZM66.3166 17.6846C59.7657 17.6846 54.4551 22.9952 54.4551 29.5461C54.4551 36.0969 59.7658 41.4076 66.3166 41.4076V17.6846Z"/></svg></span><span class="boot-t">Preparing your workspace</span></div></div>
+
+<script>
+(function(){
+  var LIBS = [
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js',
+    'https://unpkg.com/@babel/standalone@7.29.0/babel.min.js'
+  ];
+  var FILES = [
+    'data.jsx','store.jsx','common.jsx','nf-shared.jsx','nf-recon-model.jsx',
+    'shell.jsx','command-center.jsx','operator.jsx',
+    'banking.jsx','reconcile.jsx','extras.jsx','nf-features.jsx',
+    'nf-cogs.jsx','nf-automate.jsx','app.jsx'
+  ];
+  var ASSET_V = '20260813p';
+  function loadScript(src){ return new Promise(function(res,rej){ var s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=function(){rej(new Error('Failed to load '+src));}; document.head.appendChild(s); }); }
+  // react-dom reads window.React when it evaluates, so those two stay ordered.
+  // Babel is independent, so it loads alongside them instead of after them.
+  var libsReady = Promise.all([
+    loadScript(LIBS[0]).then(function(){ return loadScript(LIBS[1]); }),
+    loadScript(LIBS[2])
+  ]);
+  libsReady
+    .then(function(){
+      // Fetch all sources in ONE parallel wave, then concatenate in FILES order.
+      // Sequential fetching cost ~14 round trips and dominated load time.
+      return Promise.all(FILES.map(function(f){
+        return fetch(f + '?v=' + ASSET_V, { cache: 'no-store' }).then(function(r){
+          if(!r.ok) throw new Error('Failed to load '+f+' ('+r.status+')');
+          return r.text();
+        });
+      })).then(function(parts){ return parts.join('\n;\n'); });
+    })
+    .then(function(allCode){ (0,eval)(Babel.transform(allCode,{presets:['react']}).code); })
+    .catch(function(e){ var r=document.getElementById('root'); r.innerHTML=''; r.textContent='Load error: '+e.message; });
+})();
+</script>
+</body>
+</html>

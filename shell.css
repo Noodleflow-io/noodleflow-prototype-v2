@@ -1,0 +1,81 @@
+/* ===== APP SHELL ===== */
+/* minmax(0,1fr) not 1fr: a 1fr track's automatic minimum is min-content, so
+   without it any single wide child forces the shell track open and the whole
+   page scrolls horizontally. main needs min-width:0 for the same reason. */
+.app{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh;background:var(--bg-page)}
+.app > main{min-width:0}
+
+/* ===== SIDEBAR ===== */
+.sidebar{position:sticky;top:0;height:100vh;background:var(--bg-shell);border-right:1px solid var(--border-faint);box-shadow:var(--shadow-shell);display:flex;flex-direction:column;padding:24px 0;overflow:hidden}
+
+.brand{display:flex;align-items:center;gap:12px;padding:0 24px 24px;flex:0 0 auto}
+
+/* Nav list owns the scroll region. min-height:0 is required — without it a
+   flex item refuses to shrink below its content size, so the list overflows
+   the sidebar and the CTA + footer paint on top of it. */
+.nav-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:12px;margin-top:8px}
+.nav-scroll::-webkit-scrollbar{width:6px}
+.nav-scroll::-webkit-scrollbar-thumb{background:var(--border-soft);border-radius:99px}
+.nav-scroll::-webkit-scrollbar-track{background:transparent}
+.nav-cta{flex:0 0 auto;padding:0 16px 14px;display:flex;flex-direction:column;gap:8px}
+/* Rounded-square tile to match the supplied icon asset. No gradient overlay —
+   the brand guidelines specify the monogram as a solid fill. */
+.brand-mark{width:36px;height:36px;border-radius:10px;background:var(--brand-mark-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;overflow:hidden}
+.brand-mark{color:var(--text-1)}
+.brand-mark svg{position:relative;z-index:1}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+/* Real logotype, cropped by viewBox. Height-driven so it scales as one piece. */
+.brand-word{height:15px;width:auto;display:block;color:var(--text-1)}
+.brand-name{font-size:13px;font-weight:600;letter-spacing:0.18em;color:var(--text-1);line-height:1}
+.brand-sub{font-size:9px;letter-spacing:0.18em;color:var(--text-3);margin-top:6px;font-weight:500}
+
+/* Mode toggle */
+.mode-toggle{margin:0 16px 16px;padding:4px;background:var(--bg-card);border:1px solid var(--border-soft);border-radius:99px;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.mode-toggle button{height:30px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-3);border-radius:99px;z-index:1;position:relative;transition:color .2s var(--ease)}
+.mode-toggle button.active{color:var(--text-1)}
+.mode-toggle .pill-bg{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);background:var(--mode-pill-bg);border:1px solid var(--border-strong);border-radius:99px;transition:transform .35s var(--ease-out)}
+.mode-toggle[data-mode="banking"] .pill-bg{transform:translateX(calc(100% + 0px))}
+
+/* Sidebar section */
+.nav-section{padding:14px 24px 8px}
+.nav-section h4{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3)}
+.nav-list{display:flex;flex-direction:column;padding:0 12px}
+.nav-item{display:flex;align-items:center;gap:12px;height:38px;padding:0 12px;border-radius:10px;color:var(--text-2);font-size:13.5px;font-weight:500;cursor:pointer;transition:background .12s var(--ease),color .12s var(--ease);position:relative}
+.nav-item .dot{width:6px;height:6px;border-radius:99px;background:var(--text-4);flex-shrink:0;transition:background .15s var(--ease)}
+.nav-item .label{flex:1}
+.nav-item .badge{font-size:11px;color:var(--text-2);font-weight:500}
+.nav-item:hover{background:var(--surface-hover);color:var(--text-1)}
+.nav-item.active{background:var(--nav-active-bg);color:var(--text-1)}
+.nav-item.active .dot{background:var(--accent);box-shadow:0 0 0 3px var(--nav-active-ring)}
+.nav-item.active .badge{color:var(--accent)}
+
+/* Mode marker at bottom */
+.mode-marker{margin-top:auto;padding:18px 24px;border-top:1px solid var(--border-faint);display:flex;flex-direction:column;gap:14px}
+.mode-marker h5{font-size:11px;font-weight:600;color:var(--text-1);letter-spacing:0.01em}
+.mode-marker p{font-size:11px;color:var(--text-3);line-height:1.5}
+.mode-marker .demo-btn{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:99px;background:var(--surface-subtle);border:1px solid var(--border-soft);font-size:11px;font-weight:500;color:var(--text-1);width:fit-content;transition:background .12s var(--ease)}
+.mode-marker .demo-btn:hover{background:var(--surface-hover)}
+
+/* ===== TOPBAR ===== */
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg-topbar);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--border-faint);box-shadow:var(--shadow-topbar);padding:18px 40px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.topbar h1{font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.15}
+.topbar .sub{font-size:13px;color:var(--text-2);margin-top:2px;line-height:1.45;max-width:540px}
+.topbar .actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+
+/* Theme toggle — icon only, beside Alerts */
+.theme-toggle-icon{
+  width:36px;height:36px;padding:0;border-radius:99px;
+  border:1px solid var(--border-soft);background:var(--bg-card);
+  color:var(--text-2);display:inline-flex;align-items:center;justify-content:center;
+  transition:background .12s var(--ease),color .12s var(--ease),border-color .12s var(--ease);
+  box-shadow:var(--shadow-card);cursor:pointer;
+}
+.theme-toggle-icon:hover{background:var(--surface-hover);color:var(--text-1);border-color:var(--border-strong)}
+.topbar-alerts{min-width:96px}
+
+/* ===== MAIN ===== */
+.main{padding:28px 40px 56px;display:flex;flex-direction:column;gap:24px;min-width:0}
+
+/* Notification dot helper for top-right of buttons */
+.btn .has-dot{position:relative}
+.btn .has-dot::after{content:'';position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 2px var(--bg-page)}
