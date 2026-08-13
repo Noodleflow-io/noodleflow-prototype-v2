@@ -19,9 +19,14 @@ const App = () => {
   const [finOpen, setFinOpen] = useState(false);
   const [askOpen, setAskOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
+    // One-time migrate to light default (matches index.html boot script).
+    if (!localStorage.getItem('nf-theme-default-v2')) {
+      localStorage.setItem('nf-theme', 'light');
+      localStorage.setItem('nf-theme-default-v2', '1');
+    }
     const saved = localStorage.getItem('nf-theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return 'light'; // client: light is the default; dark is opt-in
+    if (saved === 'dark') return 'dark';
+    return 'light'; // default
   });
 
   useEffect(() => {
